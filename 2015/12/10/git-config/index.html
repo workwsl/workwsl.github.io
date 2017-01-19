@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+
+    <title>
+        
+          Git配置和常用命令 - flow的博客 | flow&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://kaijun.rocks/hexo-theme-huxblog/blog/2015/12/10/git-config/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/blog/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">flow&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/blog/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://kaijun.rocks/hexo-theme-huxblog/blog/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/blog/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/blog/tags/#git" title="git">git</a>
+                        
+                    </div>
+                    <h1>Git配置和常用命令</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by flow is me on
+                        2015-12-10
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p><img src="http://7xowjc.com1.z0.glb.clouddn.com/gitlogo.png" alt=""></p>
+<p>Git是一个分布式版本控制／软件配置管理软件，原来是linux内核开发者林纳斯·托瓦兹（Linus Torvalds）为了更好地管理linux内核开发而创立的。</p>
+<p>##Git配置<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.name</span> <span class="string">"yourname"</span></div><div class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.email</span> <span class="string">"youemail@gmail.com"</span></div><div class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> color<span class="variable">.ui</span> true</div><div class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> <span class="keyword">alias</span><span class="variable">.co</span> checkout</div><div class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> <span class="keyword">alias</span><span class="variable">.ci</span> commit</div><div class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> <span class="keyword">alias</span><span class="variable">.st</span> status</div><div class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> <span class="keyword">alias</span><span class="variable">.br</span> branch</div><div class="line">git <span class="keyword">config</span> -l  # 列举所有配置</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>用户的git配置文件在<code>~/.gitconfig</code>，我的配置：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">cat .gitconfig </div><div class="line">[user]</div><div class="line">    <span class="attr">email</span> = workwsl@<span class="number">163</span>.com</div><div class="line">    <span class="attr">name</span> = flow</div><div class="line">[color]</div><div class="line">    <span class="attr">ui</span> = auto</div><div class="line">[color <span class="string">"branch"</span>]</div><div class="line">    <span class="attr">current</span> = yellow reverse</div><div class="line">    <span class="attr">local</span> = yellow</div><div class="line">    <span class="attr">remote</span> = green</div><div class="line">[color <span class="string">"diff"</span>]</div><div class="line">    <span class="attr">meta</span> = yellow bold</div><div class="line">    <span class="attr">frag</span> = magenta bold</div><div class="line">    <span class="attr">old</span> = red bold</div><div class="line">    <span class="attr">new</span> = green bold</div><div class="line">[color <span class="string">"status"</span>]</div><div class="line">    <span class="attr">added</span> = yellow</div><div class="line">    <span class="attr">changed</span> = green</div><div class="line">    <span class="attr">untracked</span> = cyan</div><div class="line">[alias]</div><div class="line">    <span class="attr">st</span> = <span class="string">"status"</span></div><div class="line">    <span class="attr">co</span> = checkout</div><div class="line">    <span class="attr">ls</span> = <span class="string">"ls-files"</span></div><div class="line">    <span class="attr">ci</span> = commit</div><div class="line">    <span class="attr">br</span> = branch</div><div class="line">    <span class="attr">rt</span> = reset --hard</div><div class="line">    <span class="attr">unstage</span> = reset HEAD</div><div class="line">    <span class="attr">uncommit</span> = reset --soft HEAD^</div><div class="line">    <span class="attr">l</span> = log <span class="attr">--pretty=oneline</span> --abbrev-commit --graph --decorate</div><div class="line">   <span class="attr">amend</span> = commit --amend </div><div class="line">   <span class="attr">who</span> = shortlog -n -s --no-merges </div><div class="line">    <span class="attr">g</span> = grep -n --color -E </div><div class="line">    <span class="attr">cp</span> = cherry-pick -x </div><div class="line">    <span class="attr">cb</span> = checkout -b </div><div class="line">[core]</div><div class="line">    <span class="attr">filemode</span> = <span class="literal">true</span></div><div class="line">    <span class="attr">autocrlf</span> = <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+<p>##Git常用命令<br>查看、帮助命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">help</span> &lt;<span class="built_in">command</span>&gt;  <span class="comment"># 显示command的help</span></div><div class="line">git show            <span class="comment"># 显示某次提交的内容</span></div><div class="line">git show <span class="variable">$id</span></div></pre></td></tr></table></figure></p>
+<p>查看提交记录<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">log</span></div><div class="line">git <span class="keyword">log</span> <span class="variable">&lt;file&gt;</span>      <span class="comment"># 查看该文件每次提交记录</span></div><div class="line">git <span class="keyword">log</span> -p <span class="variable">&lt;file&gt;</span>   <span class="comment"># 显示版本历史，以及版本间的内容差异</span></div><div class="line">git <span class="keyword">log</span> -p -<span class="number">2</span>       <span class="comment"># 查看最近两次详细修改内容的diff</span></div><div class="line">git <span class="keyword">log</span> --stat      <span class="comment"># 查看提交统计信息</span></div><div class="line">git <span class="keyword">log</span> --since=<span class="string">"6 hours"</span>  <span class="comment"># 显示最近6小时提交</span></div><div class="line">git <span class="keyword">log</span> --before=<span class="string">"2 days"</span>  <span class="comment"># 显示2天前提交</span></div><div class="line">git <span class="keyword">log</span> -<span class="number">1</span> HEAD~<span class="number">3</span>          <span class="comment"># 显示比HEAD早3个提交的那个提交</span></div><div class="line">git <span class="keyword">log</span> -<span class="number">1</span> HEAD^^^</div><div class="line">git reflog                 <span class="comment"># 查看操作记录</span></div></pre></td></tr></table></figure></p>
+<p>添加、提交、删除、找回，重置修改文件<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">git co  -- <span class="params">&lt;file&gt;</span>   <span class="meta"># 抛弃工作区修改</span></div><div class="line">git co  .           <span class="meta"># 抛弃工作区修改</span></div><div class="line">git co HEAD <span class="params">&lt;file&gt;</span>  <span class="meta"># 抛弃工作目录区中文件的修改</span></div><div class="line"></div><div class="line">git add <span class="params">&lt;file&gt;</span>      <span class="meta"># 将工作文件修改提交到本地暂存区</span></div><div class="line">git add .           <span class="meta"># 将所有修改过的工作文件提交暂存区</span></div><div class="line"></div><div class="line">git rm <span class="params">&lt;file&gt;</span>       <span class="meta"># 从版本库中删除文件</span></div><div class="line">git rm <span class="params">&lt;file&gt;</span> --cached  <span class="meta"># 从版本库中删除文件，但不删除文件</span></div><div class="line"></div><div class="line">git reset <span class="params">&lt;file&gt;</span>    <span class="meta"># 从暂存区恢复到工作文件</span></div><div class="line">git reset -- .      <span class="meta"># 从暂存区恢复到工作文件</span></div><div class="line">git reset --hard  HEAD^ <span class="meta"># 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改</span></div><div class="line">git reset --hard <span class="params">&lt;commit id&gt;</span>  <span class="meta"># 恢复到某一次提交的状态</span></div><div class="line">git reset HEAD <span class="params">&lt;file&gt;</span> <span class="meta"># 抛弃暂存区中文件的修改</span></div><div class="line"></div><div class="line">git ci <span class="params">&lt;file&gt;</span></div><div class="line">git ci .</div><div class="line">git ci -a           <span class="meta"># 将git add, git rm和git ci等操作都合并在一起做</span></div><div class="line">git ci -am <span class="string">"some comments"</span></div><div class="line">git ci --amend      <span class="meta"># 修改最后一次提交记录</span></div><div class="line"></div><div class="line">git revert <span class="params">&lt;$id&gt;</span>    <span class="meta"># 恢复某次提交的状态，恢复动作本身也创建了一次提交对象</span></div><div class="line">git revert HEAD     <span class="meta"># 恢复最后一次提交的状态</span></div></pre></td></tr></table></figure></p>
+<p>查看文件diff<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">diff </span>&lt;file&gt;     <span class="comment"># 比较当前文件和暂存区文件差异</span></div><div class="line">git <span class="keyword">diff</span></div><div class="line">git <span class="keyword">diff </span>&lt;$id1&gt; &lt;$id2&gt;      <span class="comment"># 比较两次提交之间的差异</span></div><div class="line">git <span class="keyword">diff </span>&lt;<span class="keyword">branch1&gt;..&lt;branch2&gt; </span>  <span class="comment"># 在两个分支之间比较 </span></div><div class="line">git <span class="keyword">diff </span>--staged   <span class="comment"># 比较暂存区和版本库差异</span></div><div class="line">git <span class="keyword">diff </span>--<span class="keyword">cached </span>  <span class="comment"># 比较暂存区和版本库差异</span></div><div class="line">git <span class="keyword">diff </span>--stat     <span class="comment"># 仅仅比较统计信息</span></div></pre></td></tr></table></figure></p>
+<p>##Git 本地分支管理<br>查看、切换、创建和删除分支<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">git br -r           <span class="comment"># 查看远程分支</span></div><div class="line">git br -v           <span class="comment"># 查看各个分支最后提交信息</span></div><div class="line">git br -a           <span class="comment"># 列出所有分支</span></div><div class="line">git br --merged     <span class="comment"># 查看已经被合并到当前分支的分支</span></div><div class="line">git br --no-merged  <span class="comment"># 查看尚未被合并到当前分支的分支</span></div><div class="line">git br <span class="variable">&lt;new_branch&gt;</span> <span class="comment"># 基于当前分支创建新的分支</span></div><div class="line">git br <span class="variable">&lt;new_branch&gt;</span>  <span class="variable">&lt;start_point&gt;</span>      <span class="comment"># 基于另一个起点（分支名称，提交名称或则标签名称），创建新的分支</span></div><div class="line">git br -f <span class="variable">&lt;existing_branch&gt;</span>  <span class="variable">&lt;start_point&gt;</span> <span class="comment"># 创建同名新分支，覆盖已有分支</span></div><div class="line">git br -d <span class="variable">&lt;branch&gt;</span>  <span class="comment"># 删除某个分支</span></div><div class="line">git br -D <span class="variable">&lt;branch&gt;</span>  <span class="comment"># 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</span></div><div class="line"></div><div class="line">git co <span class="variable">&lt;branch&gt;</span>         <span class="comment"># 切换到某个分支</span></div><div class="line">git co -b <span class="variable">&lt;new_branch&gt;</span>  <span class="comment"># 创建新的分支，并且切换过去</span></div><div class="line">git co -b <span class="variable">&lt;new_branch&gt;</span> <span class="variable">&lt;branch&gt;</span>       <span class="comment"># 基于branch创建新的new_branch</span></div><div class="line">git co -m <span class="variable">&lt;existing_branch&gt;</span> <span class="variable">&lt;new_branch&gt;</span>  <span class="comment"># 移动或重命名分支，当新分支不存在时</span></div><div class="line">git co -M <span class="variable">&lt;existing_branch&gt;</span> <span class="variable">&lt;new_branch&gt;</span>  <span class="comment"># 移动或重命名分支，当新分支存在时就覆盖</span></div><div class="line"></div><div class="line">git co <span class="variable">$id</span>               <span class="comment"># 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除</span></div><div class="line">git co <span class="variable">$id</span> -b <span class="variable">&lt;new_branch&gt;</span>       <span class="comment"># 把某次历史提交记录checkout出来，创建成一个分支</span></div></pre></td></tr></table></figure></p>
+<p>分支合并和rebase<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git merge <span class="tag">&lt;branch&gt;</span>                  <span class="comment"># 将branch分支合并到当前分支</span></div><div class="line">git merge origin/<span class="keyword">master</span> <span class="title">--no-ff</span>     <span class="comment"># 不要Fast-Foward合并，这样可以生成merge提交</span></div><div class="line">git merge --no-commit <span class="tag">&lt;branch&gt;</span>      <span class="comment"># 合并但不提交</span></div><div class="line">git merge --squash <span class="tag">&lt;branch&gt;</span>         <span class="comment"># 把一条分支上的内容合并到另一个分支上的一个提交</span></div><div class="line"></div><div class="line">git rebase <span class="keyword">master</span> <span class="title">&lt;branch</span>&gt;          <span class="comment"># 将master rebase到branch，相当于：</span></div><div class="line">git co <span class="tag">&lt;branch&gt;</span> &amp;&amp; git rebase <span class="keyword">master</span> <span class="title">&amp;&amp; git</span> co <span class="keyword">master</span> <span class="title">&amp;&amp; git</span> merge <span class="tag">&lt;branch&gt;</span></div></pre></td></tr></table></figure></p>
+<p>Git补丁管理<br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git diff &gt; ../sync.<span class="keyword">patch</span>         <span class="meta"># 生成补丁</span></div><div class="line">git apply ../sync.<span class="keyword">patch</span>          <span class="meta"># 打补丁</span></div><div class="line">git apply --check ../sync.<span class="keyword">patch</span>  <span class="meta"># 测试补丁能否成功</span></div><div class="line">git format-<span class="keyword">patch</span> -X              <span class="meta"># 根据提交的log生成patch，X为数字，表示最近的几个日志</span></div></pre></td></tr></table></figure></p>
+<p>Git暂存管理<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git stash                        <span class="comment"># 暂存</span></div><div class="line">git stash <span class="built_in">list</span>                   <span class="comment"># 列所有stash</span></div><div class="line">git stash apply                  <span class="comment"># 恢复暂存的内容</span></div><div class="line">git stash drop                   <span class="comment"># 删除暂存区</span></div></pre></td></tr></table></figure></p>
+<p>Git远程分支管理<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">git pull                         <span class="comment"># 抓取远程仓库所有分支更新并合并到本地</span></div><div class="line">git pull --no-ff                 <span class="comment"># 抓取远程仓库所有分支更新并合并到本地，不要快进合并</span></div><div class="line">git fetch <span class="keyword">origin </span>                <span class="comment"># 抓取远程仓库所有更新</span></div><div class="line">git fetch <span class="keyword">origin </span>remote-<span class="keyword">branch:local-branch </span><span class="comment">#抓取remote-branch分支的更新</span></div><div class="line">git fetch <span class="keyword">origin </span>--tags          <span class="comment"># 抓取远程上的所有分支</span></div><div class="line">git checkout -<span class="keyword">b </span>&lt;new-<span class="keyword">branch&gt; </span>&lt;remote_tag&gt; <span class="comment"># 抓取远程上的分支</span></div><div class="line">git merge <span class="keyword">origin/master </span>         <span class="comment"># 将远程主分支合并到本地当前分支</span></div><div class="line">git co --track <span class="keyword">origin/branch </span>    <span class="comment"># 跟踪某个远程分支创建相应的本地分支</span></div><div class="line">git co -<span class="keyword">b </span>&lt;local_branch&gt; <span class="keyword">origin/&lt;remote_branch&gt; </span> <span class="comment"># 基于远程分支创建本地分支，功能同上</span></div><div class="line"></div><div class="line">git push                         <span class="comment"># push所有分支</span></div><div class="line">git push <span class="keyword">origin </span>master           <span class="comment"># 将本地主分支推到远程主分支</span></div><div class="line">git push -u <span class="keyword">origin </span>master        <span class="comment"># 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</span></div><div class="line">git push <span class="keyword">origin </span>&lt;local_branch&gt;   <span class="comment"># 创建远程分支， origin是远程仓库名</span></div><div class="line">git push <span class="keyword">origin </span>&lt;local_branch&gt;:&lt;remote_branch&gt;  <span class="comment"># 创建远程分支</span></div><div class="line">git push <span class="keyword">origin </span>:&lt;remote_branch&gt;  <span class="comment">#先删除本地分支(git br -d &lt;branch&gt;)，然后再push删除远程分支</span></div></pre></td></tr></table></figure></p>
+<p>Git远程仓库管理<br><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">git </span><span class="string">remote </span>-v                    <span class="comment"># 查看远程服务器地址和仓库名称</span></div><div class="line"><span class="string">git </span><span class="string">remote </span><span class="string">show </span><span class="string">origin </span>          <span class="comment"># 查看远程服务器仓库状态</span></div><div class="line"><span class="string">git </span><span class="string">remote </span><span class="string">add </span><span class="string">origin </span><span class="string">git@</span><span class="string">github:XXX/</span><span class="string">test.</span><span class="string">git </span>        <span class="comment"># 添加远程仓库地址</span></div><div class="line"><span class="string">git </span><span class="string">remote </span><span class="built_in">set-url</span> <span class="string">origin </span><span class="string">git@</span><span class="string">github.</span><span class="string">com:XXX/</span><span class="string">test.</span><span class="string">git </span><span class="comment"># 设置远程仓库地址(用于修改远程仓库地址)</span></div><div class="line"><span class="string">git </span><span class="string">remote </span><span class="string">rm </span>&lt;<span class="string">repository&gt;</span>       <span class="comment"># 删除远程仓库</span></div><div class="line"><span class="string">git </span><span class="string">remote </span><span class="built_in">set-head</span> <span class="string">origin </span><span class="string">master </span>  <span class="comment"># 设置远程仓库的HEAD指向master分支</span></div><div class="line"></div><div class="line"><span class="string">git </span><span class="string">branch </span><span class="built_in">--set-upstream</span> <span class="string">master </span><span class="string">origin/</span><span class="string">master</span></div><div class="line"><span class="string">git </span><span class="string">branch </span><span class="built_in">--set-upstream</span> <span class="string">develop </span><span class="string">origin/</span><span class="string">develop</span></div></pre></td></tr></table></figure></p>
+<p>##实例<br>打patch过程<br><figure class="highlight plain"><figcaption><span>add .</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line">git diff --cached &gt;XXX.patch</div><div class="line">git ci -m &apos;add patch&apos;</div></pre></td></tr></table></figure></p>
+<hr>
+<p><a href="http://hunng.com/2014/04/25/git-configs-and-cammands/" target="_blank" rel="external">来源</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/blog/2015/12/29/sublime-text-config/" data-toggle="tooltip" data-placement="top" title="我的 Sublime Text 3 的配置">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/blog/2015/06/29/create-ssh-key/" data-toggle="tooltip" data-placement="top" title="Generate a new SSH key">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/blog/tags/#git" title="git">git</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/ldneedu">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/workwsl">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                
+                    <li>
+                        <a target="_blank"  href="/blog/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; flow&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="#">flow</a>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://kaijun.rocks/hexo-theme-huxblog/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://kaijun.rocks/hexo-theme-huxblog/blog/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
