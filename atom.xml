@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>flow&#39;s Blog</title>
   <subtitle>To Be A Lean Developer!</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://wangsl.com/blog/"/>
+  <link href="http://wangsl.com/"/>
   <updated>2017-01-09T02:03:35.717Z</updated>
-  <id>http://wangsl.com/blog/</id>
+  <id>http://wangsl.com/</id>
   
   <author>
     <name>flow is me</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>让Git客户端记住HTTP方式的密码</title>
-    <link href="http://wangsl.com/blog/2016/09/27/remember-http-pwd-for-git/"/>
-    <id>http://wangsl.com/blog/2016/09/27/remember-http-pwd-for-git/</id>
+    <link href="http://wangsl.com/2016/09/27/remember-http-pwd-for-git/"/>
+    <id>http://wangsl.com/2016/09/27/remember-http-pwd-for-git/</id>
     <published>2016-09-27T03:18:49.000Z</published>
     <updated>2017-01-09T02:03:35.717Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="工具平台" scheme="http://wangsl.com/blog/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
+      <category term="工具平台" scheme="http://wangsl.com/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="ssh" scheme="http://wangsl.com/blog/tags/ssh/"/>
+      <category term="ssh" scheme="http://wangsl.com/tags/ssh/"/>
     
-      <category term="git" scheme="http://wangsl.com/blog/tags/git/"/>
+      <category term="git" scheme="http://wangsl.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>gulp-watch-error-on-ubuntu-14.04</title>
-    <link href="http://wangsl.com/blog/2016/01/14/gulp-watch-error-on-ubuntu-14.04/"/>
-    <id>http://wangsl.com/blog/2016/01/14/gulp-watch-error-on-ubuntu-14.04/</id>
+    <link href="http://wangsl.com/2016/01/14/gulp-watch-error-on-ubuntu-14.04/"/>
+    <id>http://wangsl.com/2016/01/14/gulp-watch-error-on-ubuntu-14.04/</id>
     <published>2016-01-14T12:00:00.000Z</published>
     <updated>2016-11-01T10:13:31.858Z</updated>
     
@@ -65,19 +65,19 @@
     
     </summary>
     
-      <category term="工具平台" scheme="http://wangsl.com/blog/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
+      <category term="工具平台" scheme="http://wangsl.com/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="gulp" scheme="http://wangsl.com/blog/tags/gulp/"/>
+      <category term="gulp" scheme="http://wangsl.com/tags/gulp/"/>
     
-      <category term="gulp-watch" scheme="http://wangsl.com/blog/tags/gulp-watch/"/>
+      <category term="gulp-watch" scheme="http://wangsl.com/tags/gulp-watch/"/>
     
   </entry>
   
   <entry>
     <title>我的 Sublime Text 3 的配置</title>
-    <link href="http://wangsl.com/blog/2015/12/29/sublime-text-config/"/>
-    <id>http://wangsl.com/blog/2015/12/29/sublime-text-config/</id>
+    <link href="http://wangsl.com/2015/12/29/sublime-text-config/"/>
+    <id>http://wangsl.com/2015/12/29/sublime-text-config/</id>
     <published>2015-12-29T01:27:00.000Z</published>
     <updated>2016-11-01T10:13:31.856Z</updated>
     
@@ -132,17 +132,17 @@
     
     </summary>
     
-      <category term="工具平台" scheme="http://wangsl.com/blog/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
+      <category term="工具平台" scheme="http://wangsl.com/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="sublime text" scheme="http://wangsl.com/blog/tags/sublime-text/"/>
+      <category term="sublime text" scheme="http://wangsl.com/tags/sublime-text/"/>
     
   </entry>
   
   <entry>
     <title>Git配置和常用命令</title>
-    <link href="http://wangsl.com/blog/2015/12/10/git-config/"/>
-    <id>http://wangsl.com/blog/2015/12/10/git-config/</id>
+    <link href="http://wangsl.com/2015/12/10/git-config/"/>
+    <id>http://wangsl.com/2015/12/10/git-config/</id>
     <published>2015-12-10T03:23:00.000Z</published>
     <updated>2016-11-01T10:13:31.855Z</updated>
     
@@ -174,17 +174,17 @@
     
     </summary>
     
-      <category term="工具平台" scheme="http://wangsl.com/blog/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
+      <category term="工具平台" scheme="http://wangsl.com/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="git" scheme="http://wangsl.com/blog/tags/git/"/>
+      <category term="git" scheme="http://wangsl.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Generate a new SSH key</title>
-    <link href="http://wangsl.com/blog/2015/06/29/create-ssh-key/"/>
-    <id>http://wangsl.com/blog/2015/06/29/create-ssh-key/</id>
+    <link href="http://wangsl.com/2015/06/29/create-ssh-key/"/>
+    <id>http://wangsl.com/2015/06/29/create-ssh-key/</id>
     <published>2015-06-29T14:16:49.000Z</published>
     <updated>2016-11-01T10:13:31.854Z</updated>
     
@@ -204,19 +204,19 @@
     
     </summary>
     
-      <category term="工具平台" scheme="http://wangsl.com/blog/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
+      <category term="工具平台" scheme="http://wangsl.com/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="ssh" scheme="http://wangsl.com/blog/tags/ssh/"/>
+      <category term="ssh" scheme="http://wangsl.com/tags/ssh/"/>
     
-      <category term="git" scheme="http://wangsl.com/blog/tags/git/"/>
+      <category term="git" scheme="http://wangsl.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>通用 CSS 笔记、建议与指导</title>
-    <link href="http://wangsl.com/blog/2015/06/27/css-of-common/"/>
-    <id>http://wangsl.com/blog/2015/06/27/css-of-common/</id>
+    <link href="http://wangsl.com/2015/06/27/css-of-common/"/>
+    <id>http://wangsl.com/2015/06/27/css-of-common/</id>
     <published>2015-06-27T04:12:01.000Z</published>
     <updated>2016-11-01T10:13:31.840Z</updated>
     
@@ -591,17 +591,17 @@ styles]
     
     </summary>
     
-      <category term="web开发" scheme="http://wangsl.com/blog/categories/web%E5%BC%80%E5%8F%91/"/>
+      <category term="web开发" scheme="http://wangsl.com/categories/web%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="css" scheme="http://wangsl.com/blog/tags/css/"/>
+      <category term="css" scheme="http://wangsl.com/tags/css/"/>
     
   </entry>
   
   <entry>
     <title>ubuntu 下 安装 sublime text3 以及 支持中文输入的解决办法</title>
-    <link href="http://wangsl.com/blog/2015/06/27/ubuntu-sublime-text3-install/"/>
-    <id>http://wangsl.com/blog/2015/06/27/ubuntu-sublime-text3-install/</id>
+    <link href="http://wangsl.com/2015/06/27/ubuntu-sublime-text3-install/"/>
+    <id>http://wangsl.com/2015/06/27/ubuntu-sublime-text3-install/</id>
     <published>2015-06-27T03:54:16.000Z</published>
     <updated>2016-11-01T10:13:31.844Z</updated>
     
@@ -624,12 +624,12 @@ styles]
     
     </summary>
     
-      <category term="工具平台" scheme="http://wangsl.com/blog/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
+      <category term="工具平台" scheme="http://wangsl.com/categories/%E5%B7%A5%E5%85%B7%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="sublime text" scheme="http://wangsl.com/blog/tags/sublime-text/"/>
+      <category term="sublime text" scheme="http://wangsl.com/tags/sublime-text/"/>
     
-      <category term="ubuntu" scheme="http://wangsl.com/blog/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://wangsl.com/tags/ubuntu/"/>
     
   </entry>
   
