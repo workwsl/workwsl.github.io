@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>flow&#39;s Blog</title>
   <subtitle>To Be A Lean Developer!</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaijun.rocks/hexo-theme-huxblog/"/>
   <updated>2017-01-09T02:03:35.717Z</updated>
